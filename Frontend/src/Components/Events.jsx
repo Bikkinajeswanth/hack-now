@@ -25,7 +25,7 @@ const Events = () => {
   const fetchEvents = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/events"
+        "https://eventure-4.onrender.com/api/events"
       );
       const data = response.data;
       setEvents(data);
@@ -71,7 +71,7 @@ const Events = () => {
       }
 
       const response = await axios.put(
-        `http://localhost:5000/api/events/${selectedEvent.categoryId}/events/${selectedEvent._id}/register`,
+        `https://eventure-4.onrender.com/api/events/${selectedEvent.categoryId}/events/${selectedEvent._id}/register`,
         {},
         {
           headers: {
