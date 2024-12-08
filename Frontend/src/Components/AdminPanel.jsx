@@ -406,7 +406,7 @@ const AdminPanel = () => {
   const fetchRegistrations = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/registrations${
+        `https://eventure-4.onrender.com/api/admin/registrations${
           filter !== "all" ? `?status=${filter}` : ""
         }`,
         {
@@ -427,7 +427,7 @@ const AdminPanel = () => {
   const fetchEvents = useCallback(async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/events",
+        "https://eventure-4.onrender.com/api/events",
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -476,7 +476,7 @@ const AdminPanel = () => {
   const handleApproval = async (userId, status) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/registrations/${userId}`,
+        `https://eventure-4.onrender.com/api/admin/registrations/${userId}`,
         {
           method: "PUT",
           headers: {
@@ -505,7 +505,7 @@ const AdminPanel = () => {
   const handleDeleteEvent = async (categoryId, eventId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/events/${categoryId}/events/${eventId}`,
+        `https://eventure-4.onrender.com/api/events/${categoryId}/events/${eventId}`,
         {
           method: "DELETE",
           headers: {
@@ -540,8 +540,8 @@ const AdminPanel = () => {
 
         const response = await fetch(
           editingEvent
-            ? `http://localhost:5000/api/events/${selectedCategory}/events/${editingEvent._id}`
-            : `http://localhost:5000/api/events/${selectedCategory}/events`,
+            ? `https://eventure-4.onrender.com/api/events/${selectedCategory}/events/${editingEvent._id}`
+            : `https://eventure-4.onrender.com/api/events/${selectedCategory}/events`,
           {
             method: editingEvent ? "PUT" : "POST",
             headers: {
@@ -609,7 +609,7 @@ const AdminPanel = () => {
 
       try {
         const response = await fetch(
-          "http://localhost:5000/api/events/category",
+          "https://eventure-4.onrender.com/api/events/category",
           {
             method: "POST",
             headers: {
@@ -642,7 +642,7 @@ const AdminPanel = () => {
   const handleUpdateCategory = useCallback(async (categoryId, newName) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/events/category/${categoryId}`,
+        `https://eventure-4.onrender.com/api/events/category/${categoryId}`,
         {
           method: "PUT",
           headers: {
@@ -677,7 +677,7 @@ const AdminPanel = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/events/category/${categoryId}`,
+        `https://eventure-4.onrender.com/api/events/category/${categoryId}`,
         {
           method: "DELETE",
           headers: {
