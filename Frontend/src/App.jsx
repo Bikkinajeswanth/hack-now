@@ -8,19 +8,21 @@ import Loading from "./Components/Loading";
 import { MotionConfig } from "framer-motion";
 
 const App = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true); // Set to true initially to show the loading screen
   const location = useLocation();
   useLenis();
 
   useEffect(() => {
+    // Set a timer to remove loading screen after 14.5 seconds
     const timer = setTimeout(() => {
       setLoading(false);
     }, 14500);
 
-    return () => clearTimeout(timer);
+    return () => clearTimeout(timer); // Cleanup the timer
   }, []);
 
   useEffect(() => {
+    // Scroll to the top when the route changes
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
@@ -28,7 +30,9 @@ const App = () => {
     <MotionConfig reducedMotion="user">
       <div className="relative min-h-screen">
         {loading ? (
-          <Loading />
+          <div role="status" aria-live="polite">
+            <Loading />
+          </div>
         ) : (
           <div className="select-none">
             <Navbar />

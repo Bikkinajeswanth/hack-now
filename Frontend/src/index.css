@@ -2,36 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom font-face for Saint-Carell */
 @font-face {
   font-family: "Saint-Carell";
-  src: url("./assets/fonts/SaintCarellClean_PERSONAL_USE_ONLY.otf")
-    format("truetype");
+  src: url("./assets/fonts/SaintCarellClean_PERSONAL_USE_ONLY.otf") format("opentype");
 }
 
-/* Remove default smooth scroll behavior */
+/* Override default smooth scrolling */
 html {
   scroll-behavior: auto !important;
 }
 
-/* Add custom scrollbar styles */
+/* Custom scrollbar styles */
 ::-webkit-scrollbar {
   width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: black;
+  background: #000; /* Black track */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ad59ce;
+  background: #ad59ce; /* Purple thumb */
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(173, 89, 206, 0.8); /* Slightly lighter on hover */
 }
 
-/* Add these to your existing styles */
+/* Add scroll margin for better anchor navigation */
+body, html {
+  scroll-margin-top: 60px; /* Adjust for fixed headers */
+}
+
+/* Fade animations for video transitions */
 .video-fade-enter {
   opacity: 0;
 }
